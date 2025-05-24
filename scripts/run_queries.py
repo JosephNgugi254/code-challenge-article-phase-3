@@ -1,4 +1,11 @@
 # scripts/run_queries.py
+
+import sys
+import os
+
+# Add project root to sys.path so 'lib' can be imported
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 from lib.db.connection import get_connection
 from lib.models.author import Author
 from lib.models.magazine import Magazine
@@ -56,7 +63,6 @@ def most_prolific_author():
     return Author(row['name'], row['id']) if row else None
 
 if __name__ == "__main__":
-    # Example usage
     print("Authors for magazine ID 1:", [a.name for a in authors_for_magazine(1)])
     print("Magazines with multiple authors:", [m.name for m in magazines_with_multiple_authors()])
     print("Article count per magazine:", article_count_per_magazine())
