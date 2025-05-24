@@ -42,4 +42,4 @@ code-challenge/
 - Transaction handling and error management
 - Test coverage for all models
 
-See the full challenge instructions for detailed requirements and evaluation criteria.
+
