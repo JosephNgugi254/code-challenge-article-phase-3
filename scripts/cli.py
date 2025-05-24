@@ -1,4 +1,11 @@
 # scripts/cli.py
+
+import sys
+import os
+
+# Add the project root directory to sys.path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
 import cmd
 from lib.models.author import Author
 from lib.models.magazine import Magazine
