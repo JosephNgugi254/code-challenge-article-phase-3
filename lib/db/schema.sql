@@ -1,16 +1,16 @@
 -- lib/db/schema.sql
-CREATE TABLE authors (
+CREATE TABLE IF NOT EXISTS authors (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE magazines (
+CREATE TABLE IF NOT EXISTS magazines (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name VARCHAR(255) NOT NULL,
     category VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE articles (
+CREATE TABLE IF NOT EXISTS articles (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     title VARCHAR(255) NOT NULL,
     author_id INTEGER NOT NULL,
@@ -19,6 +19,5 @@ CREATE TABLE articles (
     FOREIGN KEY (magazine_id) REFERENCES magazines(id) ON DELETE CASCADE
 );
 
--- Add indexes for performance
 CREATE INDEX IF NOT EXISTS idx_articles_author_id ON articles(author_id);
 CREATE INDEX IF NOT EXISTS idx_articles_magazine_id ON articles(magazine_id);
